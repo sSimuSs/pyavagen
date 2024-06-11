@@ -22,7 +22,7 @@ setup(
     requires=['python (>= 3.3)', ],
     tests_require=['pytest'],
     install_requires=[
-        'Pillow',
+        'Pillow (>=10.0.0)',
     ],
     packages=[
         'pyavagen',

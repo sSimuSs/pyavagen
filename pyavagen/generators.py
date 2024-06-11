@@ -4,6 +4,7 @@ import os
 import random
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL.ImageFont import FreeTypeFont
 
 from pyavagen.fields import AvatarField
 from pyavagen.utils import get_random_hex_color
@@ -346,10 +347,13 @@ class CharAvatar(ColorListMixin, BaseAvatar):
     def generate(self):
         draw = ImageDraw.Draw(self.img)
         img_width, img_height = self.img.size
-        font = ImageFont.truetype(font=self.font, size=self.font_size)
+        font: FreeTypeFont = ImageFont.truetype(font=self.font,
+                                                size=self.font_size)
         text = self.get_text_for_draw()
-        text_width, text_height = font.getsize(text)
-        text_height_offset = font.getoffset(text)[1]
+        left, top, right, bottom = font.getbbox(text)
+        text_width = abs(right - left)
+        text_height = abs(top - bottom)
+        text_height_offset = text_height / 2
 
         x, y = (
             (img_width - text_width) / 2,
