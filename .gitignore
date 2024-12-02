@@ -1,8 +1,17 @@
+## Development artifacts
 .idea
 __pycache__/
 *.py[cod]
 .cache/
 .tox/
 env/
+venv/
+
+## Build artifacts
 dist/
+build/
 *.egg-info
+
+## Runtime artifacts
+pyavagen/*.png
+

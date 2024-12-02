@@ -17,6 +17,8 @@ Generation of customizable avatars.
 
     pip install pyavagen
 
+Make sure you have some compatible fonts installed by running eg `fc-list <https://linux.die.net/man/1/fc-list>`_.
+
 Avatar types
 ============
 
